@@ -10,7 +10,7 @@ export const RecentProjects = () => {
   return (
     <section id="projects" className="py-20">
       <h1 className="heading">
-        A small selection of{" "}
+        A small collection of{" "}
         <span className="text-purple">recent projects</span>
       </h1>
 

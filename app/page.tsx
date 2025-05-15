@@ -1,5 +1,7 @@
+"use client";
+
 import { Approach } from "@/components/approach";
-import { Clients } from "@/components/clients";
+import { TechStackSection } from "@/components/clients";
 import { Experience } from "@/components/experience";
 import { Footer } from "@/components/footer";
 import { Grid } from "@/components/grid";
@@ -17,7 +19,7 @@ const MainPage = () => {
         <Hero />
         <Grid />
         <RecentProjects />
-        <Clients />
+        <TechStackSection />
         <Experience />
         <Approach />
         <Footer />

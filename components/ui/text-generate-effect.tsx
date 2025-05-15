@@ -13,7 +13,10 @@ export const TextGenerateEffect = ({
   className?: string;
 }) => {
   const [scope, animate] = useAnimate();
-  let wordsArray = words.split(" ");
+
+  // Split words, respecting line breaks
+  const wordsArray = words.split(/(\s+|\n)/); // keep spaces and detect \n
+
   useEffect(() => {
     animate(
       "span",
@@ -30,13 +33,20 @@ export const TextGenerateEffect = ({
   const renderWords = () => {
     return (
       <motion.div ref={scope}>
-        {wordsArray.map((word, idx) => {
+        {wordsArray.map((part, idx) => {
+          if (part === "\n") {
+            return <br key={"br" + idx} />;
+          }
+
           return (
             <motion.span
-              key={word + idx}
-              className={cn("text-white opacity-0", idx > 3 && "text-purple")}
+              key={part + idx}
+              className={cn(
+                "text-white opacity-0",
+                idx > 3 && part.trim() !== "" && "text-purple"
+              )}
             >
-              {word}{" "}
+              {part}
             </motion.span>
           );
         })}

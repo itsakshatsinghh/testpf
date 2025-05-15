@@ -21,8 +21,8 @@ export const Footer = () => {
 
       <div className="flex flex-col items-center">
         <h1 className="heading lg:max-w-[45vw]">
-          Ready to take <span className="text-purple">your</span> digital
-          presence to the next level?
+          Ready to <span className="text-purple">Collborate</span>
+          
         </h1>
 
         <p className="my-5 text-center text-white-200 md:mt-10">
@@ -49,16 +49,16 @@ export const Footer = () => {
         <p className="text-sm font-light md:text-base md:font-normal">
           Copyright &copy; {new Date().getFullYear()}{" "}
           <Link
-            href="https://sanidhy.me"
+            href=""
             target="_blank"
             rel="noreferrer noopener"
             className="text-purple"
           >
-            Sanidhya
+            Sejal
           </Link>{" "}
-          |{" "}
+          {" "}
           <Link href={links.sourceCode} className="underline">
-            Source Code
+            
           </Link>
         </p>
 
