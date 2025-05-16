@@ -1,4 +1,4 @@
-import Link from "next/link";
+
 import { FaLocationArrow } from "react-icons/fa6";
 import { StarBackground } from "@/components/ui/star-background";
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
@@ -40,14 +40,14 @@ export const Hero = () => {
             Designing the Invisible, Delivering the Intuitive.
           </p>
 
-          <Link href="#about" className="md:mt-10">
+          
             <MagicButton
               title="Show my work"
               icon={<FaLocationArrow />}
               position="right"
               asChild
             />
-          </Link>
+          
         </div>
       </div>
     </div>
