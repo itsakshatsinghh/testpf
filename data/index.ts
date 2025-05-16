@@ -1,3 +1,4 @@
+"use client";
 import { links } from "@/config";
 
 export const navItems = [
