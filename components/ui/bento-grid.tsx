@@ -1,5 +1,6 @@
 "use client";
 
+import dynamic from "next/dynamic";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { IoCopyOutline } from "react-icons/io5";
@@ -10,9 +11,13 @@ import { techStack } from "@/data";
 import animationData from "@/data/confetti.json";
 import { cn } from "@/lib/utils";
 
-import { BackgroundGradientAnimation } from "./background-gradient-animation";
-import { MagicButton } from "./magic-button";
+// Dynamically load client-only background animation
+const BackgroundGradientAnimation = dynamic(
+  () => import("./background-gradient-animation").then((mod) => mod.BackgroundGradientAnimation),
+  { ssr: false }
+);
 
+import { MagicButton } from "./magic-button";
 import { GridGlobe } from "../grid-globe";
 
 export const BentoGrid = ({
@@ -62,11 +67,7 @@ export const BentoGridItem = ({
 
   useEffect(() => {
     if (!copied) return;
-
-    const copyTimeout = setTimeout(() => {
-      setCopied(false);
-    }, 3500);
-
+    const copyTimeout = setTimeout(() => setCopied(false), 3500);
     return () => clearTimeout(copyTimeout);
   }, [copied]);
 
@@ -78,11 +79,10 @@ export const BentoGridItem = ({
       )}
       style={{
         background: "rgb(4,7,29)",
-        backgroundColor:
-          "linear-gradient(90deg, rgba(4,7,29,1) 0%, rgba(12,14,35,1) 100%)",
+        backgroundColor: "linear-gradient(90deg, rgba(4,7,29,1) 0%, rgba(12,14,35,1) 100%)",
       }}
     >
-      <div className={cn("h-full", id === 6 && "flex justify-center")}>
+      <div className={cn("h-full", id === 6 && "flex justify-center")}>  
         <div className="absolute h-full w-full">
           {img && (
             <Image
@@ -112,7 +112,7 @@ export const BentoGridItem = ({
           )}
         </div>
 
-        {id === 6 && <BackgroundGradientAnimation />}
+        {id === 6 && <BackgroundGradientAnimation />}        
 
         <div
           className={cn(
@@ -134,24 +134,16 @@ export const BentoGridItem = ({
             <div className="absolute -right-3 flex w-fit gap-1 lg:-right-2 lg:gap-5">
               <div className="flex flex-col gap-3 lg:gap-8">
                 {techStack.stack1.map((item) => (
-                  <span
-                    key={item}
-                    className="rounded-lg bg-[#10132e] px-3 py-2 text-center text-xs opacity-50 lg:px-3 lg:py-4 lg:text-base lg:opacity-100"
-                  >
+                  <span key={item} className="rounded-lg bg-[#10132e] px-3 py-2 text-center text-xs opacity-50 lg:px-3 lg:py-4 lg:text-base lg:opacity-100">
                     {item}
                   </span>
                 ))}
-
                 <span className="rounded-lg bg-[#10132e] px-3 py-4 text-center" />
               </div>
-
               <div className="flex flex-col gap-3 lg:gap-8">
                 <span className="rounded-lg bg-[#10132e] px-3 py-4 text-center" />
                 {techStack.stack2.map((item) => (
-                  <span
-                    key={item}
-                    className="rounded-lg bg-[#10132e] px-3 py-2 text-center text-xs opacity-50 lg:px-3 lg:py-4 lg:text-base lg:opacity-100"
-                  >
+                  <span key={item} className="rounded-lg bg-[#10132e] px-3 py-2 text-center text-xs opacity-50 lg:px-3 lg:py-4 lg:text-base lg:opacity-100">
                     {item}
                   </span>
                 ))}
@@ -161,18 +153,13 @@ export const BentoGridItem = ({
 
           {id === 6 && (
             <div className="group relative mt-5">
-              <button
-                tabIndex={-1}
-                className="pointer-events-none absolute -bottom-5 right-0 cursor-default"
-              >
+              <button tabIndex={-1} className="pointer-events-none absolute -bottom-5 right-0 cursor-default">
                 <Lottie
                   options={{
                     loop: copied,
                     autoplay: copied,
                     animationData,
-                    rendererSettings: {
-                      preserveAspectRatio: "xMidYMid slice",
-                    },
+                    rendererSettings: { preserveAspectRatio: "xMidYMid slice" },
                   }}
                 />
               </button>
