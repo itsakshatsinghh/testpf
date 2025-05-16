@@ -9,9 +9,9 @@
     "lint": "next lint"
   },
   "author": {
-    "name": "Sanidhya Kumar Verma",
-    "email": "sanidhya.verma12345@gmail.com",
-    "url": "https://github.com/sanidhyy"
+    "name": "Sejal Mishra",
+    "email": "sejalmishra8sept@gmail.com",
+    "url": "https://github.com/CodeNova00"
   },
   "description": "Modern & Minimalist Next.js Portfolio.",
   "keywords": [
@@ -61,22 +61,23 @@
   },
   "homepage": "https://github.com/sanidhyy/next-portfolio#readme",
   "bugs": {
-    "url": "https://github.com/sanidhyy/next-portfolio/issues",
-    "email": "sanidhya.verma12345@gmail.com"
+    "url": "https://github.com",
+    "email": "sejalmishra8sept@gmail.com"
   },
   "funding": [
     {
       "type": "patreon",
-      "url": "https://www.patreon.com/sanidhy"
+      "url": "https://www.patreon.com"
     },
     {
       "type": "Buy me a coffee",
-      "url": "https://www.buymeacoffee.com/sanidhy"
+      "url": "https://www.buymeacoffee.com"
     }
   ],
   "dependencies": {
     "@gsap/react": "^2.1.2",
     "@heroicons/react": "^2.2.0",
+    "@netlify/plugin-nextjs": "^5.11.1",
     "@react-three/drei": "^9.122.0",
     "@react-three/fiber": "^8.18.0",
     "clsx": "^2.1.1",
