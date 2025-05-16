@@ -3,7 +3,7 @@ import { FaLocationArrow } from "react-icons/fa6";
 import { StarBackground } from "@/components/ui/star-background";
 import { TextGenerateEffect } from "@/components/ui/text-generate-effect";
 import { MagicButton } from "@/components/ui/magic-button";
-import { links } from "@/config";
+
 
 
 export const Hero = () => {
